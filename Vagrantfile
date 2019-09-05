@@ -8,4 +8,7 @@ Vagrant.configure("2") do |config|
         vbox.memory = 2048 # 2048MB memory using
         vbox.customize ["modifyvm", :id, "--ioapic", "on"] # Enabling I/O APIC
     end
+
+    ## 9092 is my kafka-port
+    config.vm.network :forwarded_port, host: 9092, guest: 9092
 end
